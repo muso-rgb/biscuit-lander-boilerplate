@@ -25,7 +25,11 @@ export default function Page() {
         <div className="pointer-events-none absolute top-[62rem] right-[-12rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03),transparent_70%)] blur-3xl" />
         <Suspense fallback={null}>
           {pageContent.sections.map((section, i) => (
-            <SectionRenderer key={`${section.type}-${i}`} section={section} />
+            <SectionRenderer
+              key={`${section.type}-${i}`}
+              section={section}
+              integrations={pageContent.integrations}
+            />
           ))}
         </Suspense>
       </main>

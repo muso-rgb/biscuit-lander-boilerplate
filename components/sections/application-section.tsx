@@ -2,22 +2,26 @@
 
 import { useSearchParams } from "next/navigation"
 import type { ApplicationSectionContent } from "@/content/schema"
+import { resolveCompanyId } from "@/content/resolve-company-id"
 import { QualifiedFormFlow } from "@/components/forms/qualified-form-flow"
 import { SectionHeading, SectionLead } from "./section-primitives"
 
 type ApplicationSectionProps = {
   content: ApplicationSectionContent
+  integrationsCompanyId?: string
 }
 
-const DEFAULT_COMPANY_ID = process.env.NEXT_PUBLIC_TEMPLATE_COMPANY_ID
-
-export function ApplicationSection({ content }: ApplicationSectionProps) {
+export function ApplicationSection({
+  content,
+  integrationsCompanyId,
+}: ApplicationSectionProps) {
   const searchParams = useSearchParams()
-  const companyId =
-    searchParams.get("companyId") ??
-    content.companyId ??
-    DEFAULT_COMPANY_ID ??
-    undefined
+  const companyId = resolveCompanyId({
+    urlCompanyId: searchParams.get("companyId"),
+    sectionCompanyId: content.companyId,
+    integrationsCompanyId,
+    devFallback: process.env.NEXT_PUBLIC_TEMPLATE_COMPANY_ID,
+  })
   const traceId = searchParams.get("trace_id") ?? undefined
 
   return (

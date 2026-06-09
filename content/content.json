@@ -1,4 +1,9 @@
 {
+  "integrations": {
+    "companyId": "company_1780616841214_xh711vj",
+    "composioCompanyId": "k17cxt6zy5qekmx57f8z9m7r0d881njv",
+    "calEventTypeId": 5922318
+  },
   "site": {
     "brand": "ScaleLogix",
     "header": {

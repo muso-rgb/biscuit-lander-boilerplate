@@ -319,7 +319,7 @@ export interface ApplicationSectionContent {
   type: "application"
   heading?: string
   subheading?: string
-  /** Fallback for local/dev visits without a companyId in the URL. */
+  /** Injected by code-gen; fallback when URL has no companyId. */
   companyId?: string
 }
 
@@ -344,8 +344,18 @@ export type SectionContent =
 
 // ─── Root page shape ──────────────────────────────────────────────────────────
 
+/** Non-secret integration identifiers injected by ad-misfits code-gen. */
+export interface PageIntegrationsContent {
+  /** ad-misfits Convex companies._id */
+  companyId: string
+  composioCompanyId?: string | null
+  calEventTypeId?: number | null
+}
+
 export interface PageContent {
   site?: SiteContent
+  /** Per-company integration ids (injected by code-gen; secrets stay in ad-misfits Convex). */
+  integrations?: PageIntegrationsContent
   /** Ordered array of sections. Render order matches array order. */
   sections: SectionContent[]
 }

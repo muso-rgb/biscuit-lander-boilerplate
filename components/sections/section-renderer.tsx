@@ -7,7 +7,7 @@
  * if a new type is added to SectionContent without a matching case, tsc errors.
  */
 
-import type { SectionContent } from "@/content/schema"
+import type { PageIntegrationsContent, SectionContent } from "@/content/schema"
 import { MarqueeSection } from "./marquee-section"
 import { HeroSection } from "./hero-section"
 import { LogoStripSection } from "./logo-strip-section"
@@ -26,9 +26,10 @@ import { ApplicationSection } from "./application-section"
 
 interface SectionRendererProps {
   section: SectionContent
+  integrations?: PageIntegrationsContent
 }
 
-export function SectionRenderer({ section }: SectionRendererProps) {
+export function SectionRenderer({ section, integrations }: SectionRendererProps) {
   switch (section.type) {
     case "marquee":
       return <MarqueeSection content={section} />
@@ -61,14 +62,8 @@ export function SectionRenderer({ section }: SectionRendererProps) {
     case "application":
       return (
         <ApplicationSection
-          content={{
-            ...section,
-            companyId:
-              section.companyId ??
-              process.env.TEMPLATE_COMPANY_ID ??
-              process.env.NEXT_PUBLIC_TEMPLATE_COMPANY_ID ??
-              process.env.COMPOSIO_COMPANY_ID,
-          }}
+          content={section}
+          integrationsCompanyId={integrations?.companyId}
         />
       )
     default: {
