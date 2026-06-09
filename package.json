@@ -9,12 +9,17 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "seed:demo": "convex run seed:seedDemoData",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
+    "@composio/core": "^0.10.0",
+    "@composio/vercel": "^0.9.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "convex": "^1.40.0",
+    "date-fns": "^4.4.0",
     "lucide-react": "^0.577.0",
     "motion": "^12.37.0",
     "next": "16.1.6",

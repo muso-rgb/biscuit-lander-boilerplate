@@ -11,7 +11,7 @@
       ],
       "cta": {
         "label": "Book a Strategy Call",
-        "href": "#typeform",
+        "href": "#application",
         "variant": "default",
         "size": "default"
       }
@@ -54,7 +54,7 @@
       "subheading": "Without building it, running the day-to-day, or learning any tech. For investors seeking high-cashflow businesses in the fastest-growing sector in history.",
       "primaryCta": {
         "label": "Book a Private Strategy Call",
-        "href": "#typeform",
+        "href": "#application",
         "variant": "default",
         "size": "lg"
       },
@@ -432,7 +432,7 @@
       ],
       "cta": {
         "label": "Claim Your Agency",
-        "href": "#typeform",
+        "href": "#application",
         "variant": "default",
         "size": "lg"
       }
@@ -571,35 +571,16 @@
       "subheading": "By 2027, this market will be saturated. Early movers are securing high-ticket clients with minimal competition.",
       "cta": {
         "label": "Apply for Your Private Consultation",
-        "href": "#typeform",
+        "href": "#application",
         "variant": "default",
         "size": "lg"
       },
       "caption": "Due to our hands-on build process, we can only launch 5 new agencies per month."
     },
     {
-      "type": "typeform",
+      "type": "application",
       "heading": "Complete your application",
-      "subheading": "Swap `frames[0].src` in content.json for your live Typeform embed URL.",
-      "frames": [
-        {
-          "src": "https://form.typeform.com/to/REPLACE_WITH_FORM_ID",
-          "title": "Private application",
-          "height": 520
-        }
-      ]
-    },
-    {
-      "type": "calendly",
-      "heading": "Pick a time that works for you",
-      "subheading": "Swap `frames[0].src` in content.json for your Calendly inline scheduling URL.",
-      "frames": [
-        {
-          "src": "https://calendly.com/your-handle/30min",
-          "title": "Schedule a call",
-          "height": 680
-        }
-      ]
+      "subheading": "Answer a few questions to see available times."
     }
   ]
 }

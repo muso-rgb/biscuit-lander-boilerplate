@@ -1,6 +1,7 @@
 import { DM_Sans, Geist_Mono, Syne } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
+import { ConvexClientProvider } from "@/components/convex-client-provider"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -32,7 +33,9 @@ export default function RootLayout({
         fontMono.variable
       )}
     >
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <ConvexClientProvider>{children}</ConvexClientProvider>
+      </body>
     </html>
   )
 }

@@ -22,7 +22,7 @@ import { VideoTestimonialsSection } from "./video-testimonials-section"
 import { TeamSection } from "./team-section"
 import { FaqSection } from "./faq-section"
 import { FinalCtaSection } from "./final-cta-section"
-import { CalendlySection, TypeformSection } from "./embedded-iframe-section"
+import { ApplicationSection } from "./application-section"
 
 interface SectionRendererProps {
   section: SectionContent
@@ -58,10 +58,19 @@ export function SectionRenderer({ section }: SectionRendererProps) {
       return <FaqSection content={section} />
     case "finalCta":
       return <FinalCtaSection content={section} />
-    case "typeform":
-      return <TypeformSection content={section} />
-    case "calendly":
-      return <CalendlySection content={section} />
+    case "application":
+      return (
+        <ApplicationSection
+          content={{
+            ...section,
+            companyId:
+              section.companyId ??
+              process.env.TEMPLATE_COMPANY_ID ??
+              process.env.NEXT_PUBLIC_TEMPLATE_COMPANY_ID ??
+              process.env.COMPOSIO_COMPANY_ID,
+          }}
+        />
+      )
     default: {
       // Exhaustiveness check: this line errors if a new union member has no case
       const _exhaustive: never = section

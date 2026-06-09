@@ -315,35 +315,12 @@ export interface FinalCtaContent {
   caption: string
 }
 
-/** One iframe embed; used by `typeform` and `calendly` section `frames` arrays. */
-export interface SectionEmbedFrame {
-  src: string
-  title?: string
-  height?: number
-}
-
-export interface TypeformSectionContent {
-  type: "typeform"
-  /** Single embed built as `form.typeform.com/to/{formId}`; ignored when `frames` is non-empty. */
-  formId?: string
-  /** When non-empty, each entry becomes an iframe (validated host: `form.typeform.com`). */
-  frames?: SectionEmbedFrame[]
+export interface ApplicationSectionContent {
+  type: "application"
   heading?: string
   subheading?: string
-  iframeTitle?: string
-  height?: number
-}
-
-export interface CalendlySectionContent {
-  type: "calendly"
-  /** Inline embed URL; ignored when `frames` is non-empty. */
-  schedulingUrl?: string
-  /** When non-empty, each entry becomes an iframe (validated host: `calendly.com`). */
-  frames?: SectionEmbedFrame[]
-  heading?: string
-  subheading?: string
-  iframeTitle?: string
-  height?: number
+  /** Fallback for local/dev visits without a companyId in the URL. */
+  companyId?: string
 }
 
 // ─── Discriminated union ──────────────────────────────────────────────────────
@@ -363,8 +340,7 @@ export type SectionContent =
   | TeamContent
   | FaqContent
   | FinalCtaContent
-  | TypeformSectionContent
-  | CalendlySectionContent
+  | ApplicationSectionContent
 
 // ─── Root page shape ──────────────────────────────────────────────────────────
 
