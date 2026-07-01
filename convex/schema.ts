@@ -7,11 +7,25 @@ import {
   userFormResponseStatusValidator,
 } from "./forms/validators";
 
+const calendarStateMessagingValidator = v.object({
+  message: v.string(),
+  showFallbackEmail: v.boolean(),
+  copySource: v.union(v.literal("ai"), v.literal("manual")),
+});
+
 export default defineSchema({
   companies: defineTable({
     name: v.string(),
     displayName: v.optional(v.string()),
     composioCompanyId: v.optional(v.string()),
+    bookingClosed: v.optional(v.boolean()),
+    calendarMessaging: v.optional(
+      v.object({
+        closed: calendarStateMessagingValidator,
+        unavailable: calendarStateMessagingValidator,
+        noAvailability: calendarStateMessagingValidator,
+      }),
+    ),
     createdAt: v.number(),
     updatedAt: v.number(),
   }).index("by_name", ["name"]),

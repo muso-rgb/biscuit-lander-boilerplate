@@ -21,12 +21,18 @@ import {
 import {
   AlertCircle,
   CalendarCheck,
+  CalendarX2,
   CheckCircle2,
   Globe,
   Loader2,
   RefreshCw,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import {
+  DEFAULT_CLOSED_MESSAGE,
+  DEFAULT_NO_AVAILABILITY_MESSAGE,
+  DEFAULT_UNAVAILABLE_MESSAGE,
+} from "@/convex/lib/calendarMessagingDefaults";
 
 type Slot = {
   startTime: string;
@@ -87,10 +93,12 @@ function getTimeOfDayLabel(slot: Slot): string {
 }
 
 function CalendarFallbackPanel({
+  message,
   fallbackEmail,
   onRetry,
   className,
 }: {
+  message?: string | null;
   fallbackEmail?: string | null;
   onRetry?: () => void;
   className?: string;
@@ -101,14 +109,14 @@ function CalendarFallbackPanel({
       <AlertTitle>Calendar unavailable</AlertTitle>
       <AlertDescription className="flex flex-col gap-3">
         <span>
+          {message || DEFAULT_UNAVAILABLE_MESSAGE}{" "}
           {fallbackEmail ? (
             <>
-              We&apos;re having trouble loading available times right now.
               Please email us at <strong>{fallbackEmail}</strong> and we&apos;ll
               get back to you within a few hours to book your strategy call.
             </>
           ) : (
-            "We're having trouble loading available times right now. Please try again shortly."
+            "Please try again shortly."
           )}
         </span>
         {onRetry && (
@@ -123,6 +131,34 @@ function CalendarFallbackPanel({
             Retry
           </Button>
         )}
+      </AlertDescription>
+    </Alert>
+  );
+}
+
+export function CalendarClosedPanel({
+  message,
+  fallbackEmail,
+  className,
+}: {
+  message?: string | null;
+  fallbackEmail?: string | null;
+  className?: string;
+}) {
+  return (
+    <Alert className={className}>
+      <CalendarX2 className="size-4" />
+      <AlertTitle>Booking unavailable</AlertTitle>
+      <AlertDescription>
+        <span>
+          {message || DEFAULT_CLOSED_MESSAGE}
+          {fallbackEmail && (
+            <>
+              {" "}You can reach us at <strong>{fallbackEmail}</strong> and
+              we&apos;ll follow up with you.
+            </>
+          )}
+        </span>
       </AlertDescription>
     </Alert>
   );
@@ -154,6 +190,26 @@ export function BookingFlow({
     api.booking.queries.getBookingStatus,
     formResponseId || traceId ? { companyId, formResponseId, traceId } : "skip",
   );
+  const calendarMessagingConfig = useQuery(
+    api.companies.queries.getCalendarMessagingForPublic,
+    { companyId },
+  );
+  const unavailableMessage =
+    calendarMessagingConfig?.calendarMessaging?.unavailable?.message;
+  const unavailableEmail =
+    calendarMessagingConfig?.calendarMessaging?.unavailable?.showFallbackEmail !==
+    false
+      ? fallbackEmail
+      : null;
+  const noAvailabilityMessage =
+    calendarMessagingConfig?.calendarMessaging?.noAvailability?.message;
+  // Unlike `unavailable`, this state never showed a fallback email before this
+  // feature — default off so it stays opt-in instead of silently turning on
+  // for every company.
+  const noAvailabilityEmail = calendarMessagingConfig?.calendarMessaging
+    ?.noAvailability?.showFallbackEmail
+    ? fallbackEmail
+    : null;
   const fetchSlots = useAction(api.booking.actions.fetchSlots);
   const createAppointment = useAction(api.booking.actions.createAppointment);
 
@@ -295,6 +351,19 @@ export function BookingFlow({
     }
   };
 
+  if (calendarMessagingConfig?.bookingClosed) {
+    return (
+      <CalendarClosedPanel
+        message={calendarMessagingConfig.calendarMessaging?.closed?.message}
+        fallbackEmail={
+          calendarMessagingConfig.calendarMessaging?.closed?.showFallbackEmail
+            ? fallbackEmail
+            : null
+        }
+      />
+    );
+  }
+
   if (!formResponseId && !traceId) return null;
 
   if (status?.status === "waiting") {
@@ -334,7 +403,8 @@ export function BookingFlow({
   if (status.status === "failed") {
     return (
       <CalendarFallbackPanel
-        fallbackEmail={fallbackEmail}
+        message={unavailableMessage}
+        fallbackEmail={unavailableEmail}
         onRetry={() => setRetryKey((value) => value + 1)}
       />
     );
@@ -389,7 +459,8 @@ export function BookingFlow({
 
       {slotsError && (
         <CalendarFallbackPanel
-          fallbackEmail={fallbackEmail}
+          message={unavailableMessage}
+          fallbackEmail={unavailableEmail}
           className="mb-4"
           onRetry={() => setRetryKey((value) => value + 1)}
         />
@@ -493,7 +564,13 @@ export function BookingFlow({
 
       {!slotsLoading && !slotsError && slots.length === 0 && (
         <div className="rounded-md border border-dashed bg-muted/30 p-5 text-center text-sm text-muted-foreground">
-          No available times were found right now.
+          {noAvailabilityMessage || DEFAULT_NO_AVAILABILITY_MESSAGE}
+          {noAvailabilityEmail && (
+            <>
+              {" "}In the meantime you can reach us at{" "}
+              <strong>{noAvailabilityEmail}</strong>.
+            </>
+          )}
         </div>
       )}
 

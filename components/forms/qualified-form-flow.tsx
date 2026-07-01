@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
-import { BookingFlow } from "@/components/booking/booking-flow";
+import { BookingFlow, CalendarClosedPanel } from "@/components/booking/booking-flow";
 import { getFallbackContactEmail } from "@/content/fallback-contact";
 import {
   clearSessionStorageKey,
@@ -84,6 +84,10 @@ export function QualifiedFormFlow({
   fallbackEmail,
 }: QualifiedFormFlowProps) {
   const published = useQuery(api.forms.queries.getPublishedFormForPublic, { companyId });
+  const calendarMessagingConfig = useQuery(
+    api.companies.queries.getCalendarMessagingForPublic,
+    { companyId },
+  );
   const responseStorageKey = companyId
     ? `${SESSION_STORAGE_LEAD_PREFIX}${companyId}:responseId`
     : null;
@@ -148,6 +152,19 @@ export function QualifiedFormFlow({
     if (!form || form.questions.length === 0 || !response) return 0;
     return Math.min(100, (response.answers.length / totalQuestionCount) * 100);
   }, [form, response, totalQuestionCount]);
+
+  if (calendarMessagingConfig?.bookingClosed) {
+    return (
+      <CalendarClosedPanel
+        message={calendarMessagingConfig.calendarMessaging?.closed?.message}
+        fallbackEmail={
+          calendarMessagingConfig.calendarMessaging?.closed?.showFallbackEmail
+            ? resolvedFallbackEmail
+            : null
+        }
+      />
+    );
+  }
 
   if (published === undefined) {
     return (
