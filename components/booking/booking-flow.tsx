@@ -1,11 +1,15 @@
 "use client";
 
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { useAction, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  SESSION_STORAGE_LEAD_PREFIX,
+  useSessionStorageState,
+} from "@/hooks/use-session-storage-state";
 import { cn } from "@/lib/utils";
 import {
   addDays,
@@ -42,6 +46,7 @@ type BookingFlowProps = {
   contactCaptured?: boolean;
   contactPanel?: ReactNode;
   variant?: "default" | "qualified";
+  fallbackEmail?: string | null;
 };
 
 const SLOT_PAGE_SIZE = 5;
@@ -81,20 +86,46 @@ function getTimeOfDayLabel(slot: Slot): string {
   return "Evening";
 }
 
-function formatCalendarError(message: string): string {
-  if (message.includes("event type is not configured")) {
-    return "Booking is not set up yet. An administrator needs to select a Cal.com event type in Integrations.";
-  }
-  if (
-    message.includes("ConnectedAccountNotFound") ||
-    message.includes("No connected account found")
-  ) {
-    return "Cal.com needs to be reconnected in company Integrations settings.";
-  }
-  if (message.includes("No Cal.com event types were found")) {
-    return "No Cal.com event types are available. Check Integrations and save an event type.";
-  }
-  return message;
+function CalendarFallbackPanel({
+  fallbackEmail,
+  onRetry,
+  className,
+}: {
+  fallbackEmail?: string | null;
+  onRetry?: () => void;
+  className?: string;
+}) {
+  return (
+    <Alert variant="destructive" className={className}>
+      <AlertCircle className="size-4" />
+      <AlertTitle>Calendar unavailable</AlertTitle>
+      <AlertDescription className="flex flex-col gap-3">
+        <span>
+          {fallbackEmail ? (
+            <>
+              We&apos;re having trouble loading available times right now.
+              Please email us at <strong>{fallbackEmail}</strong> and we&apos;ll
+              get back to you within a few hours to book your strategy call.
+            </>
+          ) : (
+            "We're having trouble loading available times right now. Please try again shortly."
+          )}
+        </span>
+        {onRetry && (
+          <Button
+            type="button"
+            size="sm"
+            variant="outline"
+            className="w-fit"
+            onClick={onRetry}
+          >
+            <RefreshCw className="mr-2 size-3" />
+            Retry
+          </Button>
+        )}
+      </AlertDescription>
+    </Alert>
+  );
 }
 
 export function BookingFlow({
@@ -104,6 +135,7 @@ export function BookingFlow({
   contactCaptured: contactCapturedOverride,
   contactPanel,
   variant = "default",
+  fallbackEmail,
 }: BookingFlowProps) {
   const timezone = useMemo(() => getBrowserTimezone(), []);
   const [currentMonth] = useState(() => startOfMonth(new Date()));
@@ -132,6 +164,17 @@ export function BookingFlow({
   const contactCaptured = contactCapturedOverride ?? statusContactCaptured;
   const effectiveFormResponseId =
     formResponseId ?? (typeof status?.formResponseId === "string" ? status.formResponseId : undefined);
+  const slotStorageKey =
+    effectiveFormResponseId || traceId
+      ? `${SESSION_STORAGE_LEAD_PREFIX}${companyId}:slot:${effectiveFormResponseId ?? traceId}`
+      : null;
+  const [persistedSlot, setPersistedSlot, clearPersistedSlot] =
+    useSessionStorageState<Slot | null>(slotStorageKey, null);
+  const selectedSlotRef = useRef<Slot | null>(null);
+
+  useEffect(() => {
+    selectedSlotRef.current = selectedSlot;
+  }, [selectedSlot]);
 
   useEffect(() => {
     if (!isReady || !effectiveFormResponseId) return;
@@ -139,7 +182,6 @@ export function BookingFlow({
     const loadSlots = async () => {
       setSlotsLoading(true);
       setSlotsError(null);
-      setSelectedSlot(null);
       try {
         const result = await fetchSlots({
           companyId,
@@ -151,18 +193,31 @@ export function BookingFlow({
         if (canceled) return;
         const nextSlots = (result.slots ?? []) as Slot[];
         setSlots(nextSlots);
+        const restoredSlot =
+          !selectedSlotRef.current && persistedSlot
+            ? nextSlots.find((slot) => slotKey(slot) === slotKey(persistedSlot))
+            : null;
+        if (restoredSlot) {
+          setSelectedSlot(restoredSlot);
+          setSelectedDate(new Date(restoredSlot.startTime));
+        }
+
         setSelectedDate((current) => {
+          if (restoredSlot) return new Date(restoredSlot.startTime);
           const selectedStillAvailable =
-            current && nextSlots.some((slot) => dayKey(new Date(slot.startTime)) === dayKey(current));
+            current &&
+            nextSlots.some((slot) => dayKey(new Date(slot.startTime)) === dayKey(current));
           if (selectedStillAvailable) return current;
           const first = nextSlots[0];
           return first ? new Date(first.startTime) : null;
         });
       } catch (error) {
         if (canceled) return;
+        console.error("Failed to load booking availability", error);
         setSlots([]);
         setSelectedDate(null);
-        setSlotsError(formatCalendarError(error instanceof Error ? error.message : String(error)));
+        setSelectedSlot(null);
+        setSlotsError("unavailable");
       } finally {
         if (!canceled) setSlotsLoading(false);
       }
@@ -171,7 +226,16 @@ export function BookingFlow({
     return () => {
       canceled = true;
     };
-  }, [companyId, currentMonth, effectiveFormResponseId, fetchSlots, isReady, retryKey, timezone]);
+  }, [
+    companyId,
+    currentMonth,
+    effectiveFormResponseId,
+    fetchSlots,
+    isReady,
+    persistedSlot,
+    retryKey,
+    timezone,
+  ]);
 
   const slotsByDay = useMemo(() => {
     const map = new Map<string, Slot[]>();
@@ -221,7 +285,9 @@ export function BookingFlow({
         startTime: result.startTime ?? selectedSlot.startTime,
         endTime: result.endTime ?? selectedSlot.endTime,
       });
+      clearPersistedSlot();
     } catch (error) {
+      console.error("Failed to book appointment", error);
       setBookingError(error instanceof Error ? error.message : String(error));
       setRetryKey((value) => value + 1);
     } finally {
@@ -267,13 +333,10 @@ export function BookingFlow({
 
   if (status.status === "failed") {
     return (
-      <Alert variant="destructive">
-        <AlertCircle className="size-4" />
-        <AlertTitle>Calendar unavailable</AlertTitle>
-        <AlertDescription>
-          {formatCalendarError(status.lastError ?? "We could not prepare a booking calendar.")}
-        </AlertDescription>
-      </Alert>
+      <CalendarFallbackPanel
+        fallbackEmail={fallbackEmail}
+        onRetry={() => setRetryKey((value) => value + 1)}
+      />
     );
   }
 
@@ -325,23 +388,11 @@ export function BookingFlow({
       )}
 
       {slotsError && (
-        <Alert variant="destructive" className="mb-4">
-          <AlertCircle className="size-4" />
-          <AlertTitle>Could not load availability</AlertTitle>
-          <AlertDescription className="flex flex-col gap-3">
-            <span>{slotsError}</span>
-            <Button
-              type="button"
-              size="sm"
-              variant="outline"
-              className="w-fit"
-              onClick={() => setRetryKey((value) => value + 1)}
-            >
-              <RefreshCw className="mr-2 size-3" />
-              Retry
-            </Button>
-          </AlertDescription>
-        </Alert>
+        <CalendarFallbackPanel
+          fallbackEmail={fallbackEmail}
+          className="mb-4"
+          onRetry={() => setRetryKey((value) => value + 1)}
+        />
       )}
 
       {!slotsLoading && !slotsError && availableDays.length > 0 && (
@@ -358,6 +409,7 @@ export function BookingFlow({
                   onClick={() => {
                     setSelectedDate(date);
                     setSelectedSlot(null);
+                    setPersistedSlot(null);
                     setSlotPage(0);
                   }}
                   className={cn(
@@ -399,7 +451,10 @@ export function BookingFlow({
                     variant={selected ? "default" : "outline"}
                     size="sm"
                     className="justify-center"
-                    onClick={() => setSelectedSlot(slot)}
+                    onClick={() => {
+                      setSelectedSlot(slot);
+                      setPersistedSlot(slot);
+                    }}
                   >
                     {formatTimeRange(slot)}
                   </Button>

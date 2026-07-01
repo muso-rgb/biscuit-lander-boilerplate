@@ -9,11 +9,13 @@ import { SectionHeading, SectionLead } from "./section-primitives"
 type ApplicationSectionProps = {
   content: ApplicationSectionContent
   integrationsCompanyId?: string
+  fallbackEmail?: string
 }
 
 export function ApplicationSection({
   content,
   integrationsCompanyId,
+  fallbackEmail,
 }: ApplicationSectionProps) {
   const searchParams = useSearchParams()
   const companyId = resolveCompanyId({
@@ -40,7 +42,11 @@ export function ApplicationSection({
         )}
 
         {companyId ? (
-          <QualifiedFormFlow companyId={companyId} traceId={traceId} />
+          <QualifiedFormFlow
+            companyId={companyId}
+            traceId={traceId}
+            fallbackEmail={fallbackEmail}
+          />
         ) : (
           <div className="rounded-lg border border-dashed bg-card/60 p-6 text-center text-sm text-muted-foreground">
             Application unavailable — missing companyId.

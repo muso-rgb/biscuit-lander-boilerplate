@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { QualifiedFormFlow } from "@/components/forms/qualified-form-flow";
+import { getFallbackContactEmail } from "@/content/fallback-contact";
 
 export function QualifyClient() {
   const searchParams = useSearchParams();
@@ -21,7 +22,11 @@ export function QualifyClient() {
   return (
     <main className="min-h-screen bg-background p-4 sm:p-6">
       <div className="mx-auto max-w-6xl">
-        <QualifiedFormFlow companyId={companyId} traceId={traceId} />
+        <QualifiedFormFlow
+          companyId={companyId}
+          traceId={traceId}
+          fallbackEmail={getFallbackContactEmail() ?? undefined}
+        />
       </div>
     </main>
   );

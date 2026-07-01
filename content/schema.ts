@@ -40,6 +40,8 @@ export interface SiteHeaderContent {
 
 export interface SiteFooterContent {
   contactEmail: string
+  /** Shown when Cal.com booking is unavailable; falls back to contactEmail. */
+  fallbackEmail?: string
   legalLinks: NavLink[]
   legalDisclaimer: string
   copyright: string

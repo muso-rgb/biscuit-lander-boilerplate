@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { QualifiedFormFlow } from "@/components/forms/qualified-form-flow";
+import { getFallbackContactEmail } from "@/content/fallback-contact";
 
 export function OfferClient() {
   const searchParams = useSearchParams();
@@ -18,7 +19,11 @@ export function OfferClient() {
           ) : null}
         </div>
         {companyId ? (
-          <QualifiedFormFlow companyId={companyId} traceId={traceId} />
+          <QualifiedFormFlow
+            companyId={companyId}
+            traceId={traceId}
+            fallbackEmail={getFallbackContactEmail() ?? undefined}
+          />
         ) : (
           <div className="rounded-lg border border-dashed bg-muted/30 p-8 text-center text-sm text-muted-foreground">
             Missing companyId in URL.

@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useSessionStorageState } from "@/hooks/use-session-storage-state";
 import { cn } from "@/lib/utils";
+
+type ContactDraft = {
+  name: string;
+  email: string;
+  phone: string;
+};
 
 type ContactCaptureProps = {
   loading?: boolean;
@@ -14,6 +20,7 @@ type ContactCaptureProps = {
   description?: string;
   submitLabel?: string;
   className?: string;
+  storageKey?: string | null;
   onSubmit: (contact: { name: string; email: string; phone?: string }) => void;
 };
 
@@ -24,11 +31,13 @@ export function ContactCapture({
   description = "Enter your details to see available times.",
   submitLabel = "Continue",
   className,
+  storageKey,
   onSubmit,
 }: ContactCaptureProps) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [draft, setDraft] = useSessionStorageState<ContactDraft>(
+    storageKey ?? null,
+    { name: "", email: "", phone: "" },
+  );
 
   return (
     <section className={cn("rounded-lg border bg-card p-4 shadow-sm sm:p-5", className)}>
@@ -41,9 +50,9 @@ export function ContactCapture({
         onSubmit={(event) => {
           event.preventDefault();
           onSubmit({
-            name,
-            email,
-            ...(phone.trim() && { phone }),
+            name: draft.name,
+            email: draft.email,
+            ...(draft.phone.trim() && { phone: draft.phone }),
           });
         }}
       >
@@ -51,8 +60,10 @@ export function ContactCapture({
           <Label htmlFor="qualified-name">Name</Label>
           <Input
             id="qualified-name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+            value={draft.name}
+            onChange={(event) =>
+              setDraft((current) => ({ ...current, name: event.target.value }))
+            }
             autoComplete="name"
             required
           />
@@ -62,8 +73,10 @@ export function ContactCapture({
           <Input
             id="qualified-email"
             type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={draft.email}
+            onChange={(event) =>
+              setDraft((current) => ({ ...current, email: event.target.value }))
+            }
             autoComplete="email"
             required
           />
@@ -72,8 +85,10 @@ export function ContactCapture({
           <Label htmlFor="qualified-phone">Phone</Label>
           <Input
             id="qualified-phone"
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
+            value={draft.phone}
+            onChange={(event) =>
+              setDraft((current) => ({ ...current, phone: event.target.value }))
+            }
             autoComplete="tel"
           />
         </div>

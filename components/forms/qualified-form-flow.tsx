@@ -11,6 +11,12 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { BookingFlow } from "@/components/booking/booking-flow";
+import { getFallbackContactEmail } from "@/content/fallback-contact";
+import {
+  clearSessionStorageKey,
+  SESSION_STORAGE_LEAD_PREFIX,
+  useSessionStorageState,
+} from "@/hooks/use-session-storage-state";
 import { ApplicationStepIndicator } from "./application-step-indicator";
 import { ContactCapture } from "./contact-capture";
 import { LockedCalendarPreview } from "./locked-calendar-preview";
@@ -18,6 +24,7 @@ import { LockedCalendarPreview } from "./locked-calendar-preview";
 type QualifiedFormFlowProps = {
   companyId: string;
   traceId?: string;
+  fallbackEmail?: string;
 };
 
 type ResponseForQuestion = {
@@ -71,9 +78,19 @@ function getCurrentQuestion(
   return null;
 }
 
-export function QualifiedFormFlow({ companyId, traceId }: QualifiedFormFlowProps) {
+export function QualifiedFormFlow({
+  companyId,
+  traceId,
+  fallbackEmail,
+}: QualifiedFormFlowProps) {
   const published = useQuery(api.forms.queries.getPublishedFormForPublic, { companyId });
-  const [responseId, setResponseId] = useState<string | null>(null);
+  const responseStorageKey = companyId
+    ? `${SESSION_STORAGE_LEAD_PREFIX}${companyId}:responseId`
+    : null;
+  const [responseId, setResponseId] = useSessionStorageState<string | null>(
+    responseStorageKey,
+    null,
+  );
   const [answering, setAnswering] = useState(false);
   const [contactSaving, setContactSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -88,6 +105,10 @@ export function QualifiedFormFlow({ companyId, traceId }: QualifiedFormFlowProps
   );
 
   const form = published?.form as Form | null | undefined;
+  const resolvedFallbackEmail = getFallbackContactEmail(fallbackEmail);
+  const contactStorageKey = responseId
+    ? `${SESSION_STORAGE_LEAD_PREFIX}${companyId}:contact:${responseId}`
+    : null;
 
   useEffect(() => {
     if (!published?.form || !published.formId || responseId) return;
@@ -102,7 +123,15 @@ export function QualifiedFormFlow({ companyId, traceId }: QualifiedFormFlowProps
     return () => {
       canceled = true;
     };
-  }, [companyId, published?.form, published?.formId, responseId, startResponse, traceId]);
+  }, [
+    companyId,
+    published?.form,
+    published?.formId,
+    responseId,
+    setResponseId,
+    startResponse,
+    traceId,
+  ]);
 
   const currentQuestion = useMemo(() => {
     if (!form) return null;
@@ -206,6 +235,7 @@ export function QualifiedFormFlow({ companyId, traceId }: QualifiedFormFlowProps
           traceId={traceId}
           formResponseId={responseId}
           variant="qualified"
+          fallbackEmail={resolvedFallbackEmail}
           contactCaptured={!!response.contact}
           contactPanel={
             !response.contact ? (
@@ -216,11 +246,13 @@ export function QualifiedFormFlow({ companyId, traceId }: QualifiedFormFlowProps
                 className="border-0 bg-transparent p-0 shadow-none"
                 loading={contactSaving}
                 error={contactError}
+                storageKey={contactStorageKey}
                 onSubmit={async (contact) => {
                   setContactSaving(true);
                   setContactError(null);
                   try {
                     await saveContact({ responseId, ...contact });
+                    clearSessionStorageKey(contactStorageKey);
                   } catch (err) {
                     setContactError(err instanceof Error ? err.message : String(err));
                   } finally {

@@ -1,4 +1,5 @@
 import { pageContent } from "@/content/load-content"
+import { getFallbackContactEmail } from "@/content/fallback-contact"
 import { PosthogProvider } from "@/components/analytics/posthog-provider"
 import { SiteFooter } from "@/components/chrome/site-footer"
 import { SiteHeader } from "@/components/chrome/site-header"
@@ -29,6 +30,7 @@ export default function Page() {
               key={`${section.type}-${i}`}
               section={section}
               integrations={pageContent.integrations}
+              fallbackEmail={getFallbackContactEmail() ?? undefined}
             />
           ))}
         </Suspense>

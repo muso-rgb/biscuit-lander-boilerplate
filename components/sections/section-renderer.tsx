@@ -27,9 +27,10 @@ import { ApplicationSection } from "./application-section"
 interface SectionRendererProps {
   section: SectionContent
   integrations?: PageIntegrationsContent
+  fallbackEmail?: string
 }
 
-export function SectionRenderer({ section, integrations }: SectionRendererProps) {
+export function SectionRenderer({ section, integrations, fallbackEmail }: SectionRendererProps) {
   switch (section.type) {
     case "marquee":
       return <MarqueeSection content={section} />
@@ -64,6 +65,7 @@ export function SectionRenderer({ section, integrations }: SectionRendererProps)
         <ApplicationSection
           content={section}
           integrationsCompanyId={integrations?.companyId}
+          fallbackEmail={fallbackEmail}
         />
       )
     default: {
