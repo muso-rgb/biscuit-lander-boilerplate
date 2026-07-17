@@ -1,0 +1,224 @@
+{
+  "site": {
+    "brand": "Pluto",
+    "header": {
+      "logoText": "Pluto",
+      "navLinks": [
+        {
+          "label": "Features",
+          "href": "#features"
+        },
+        {
+          "label": "How It Works",
+          "href": "#process"
+        },
+        {
+          "label": "FAQ",
+          "href": "#faq"
+        }
+      ],
+      "cta": {
+        "text": "Get Started Free",
+        "href": "#application"
+      }
+    },
+    "footer": {
+      "contactEmail": "support@pluto.com",
+      "legalLinks": [
+        {
+          "label": "Privacy Policy",
+          "href": "/privacy"
+        },
+        {
+          "label": "Terms of Service",
+          "href": "/terms"
+        }
+      ],
+      "copyright": "© 2024 Pluto. All rights reserved."
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "heading": "The AI-Powered Ads Platform That Runs Your Revenue Growth on Autopilot",
+      "subheading": "Stop managing scattered tools and manual workflows. Pluto automates everything from campaign optimization to team coordination, connecting with your existing stack to deliver hands-free revenue growth.",
+      "primaryCta": {
+        "text": "Start Growing Revenue Today",
+        "href": "#application"
+      },
+      "stats": [
+        {
+          "number": "3x",
+          "label": "Faster Campaign Setup"
+        },
+        {
+          "number": "50%",
+          "label": "Less Manual Work"
+        },
+        {
+          "number": "100+",
+          "label": "Platform Integrations"
+        }
+      ]
+    },
+    {
+      "type": "audience",
+      "heading": "Built for Revenue Teams Who Need More Than Just Another Marketing Tool",
+      "subheading": "If you're juggling multiple platforms, drowning in manual tasks, and struggling to scale your advertising operations, Pluto transforms chaos into automated growth.",
+      "audiences": [
+        {
+          "title": "Marketing Directors",
+          "description": "Tired of switching between 10+ tools to manage campaigns. Need unified visibility and automated optimization across all channels.",
+          "painPoints": [
+            "Tool sprawl killing productivity",
+            "No unified reporting dashboard",
+            "Manual optimization eating up time"
+          ]
+        },
+        {
+          "title": "Growth Teams",
+          "description": "Scaling fast but operations can't keep up. Need intelligent automation to handle routine tasks while focusing on strategy.",
+          "painPoints": [
+            "Can't scale manual processes",
+            "Missing optimization opportunities",
+            "Team coordination bottlenecks"
+          ]
+        },
+        {
+          "title": "Revenue Operations",
+          "description": "Responsible for connecting marketing to revenue outcomes. Need seamless integration between advertising and sales systems.",
+          "painPoints": [
+            "Disconnected data sources",
+            "Attribution headaches",
+            "Manual reporting workflows"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Everything You Need to Automate Revenue Growth",
+      "subheading": "Pluto doesn't just connect your tools - it thinks, learns, and acts on your behalf to optimize every aspect of your revenue operations.",
+      "features": [
+        {
+          "title": "AI Chat Interface That Actually Understands Your Business",
+          "description": "Ask Pluto to optimize campaigns, pull reports, or coordinate tasks across your team. It understands context and takes action across all your connected platforms.",
+          "benefits": [
+            "Natural language campaign management",
+            "Intelligent task routing",
+            "Context-aware recommendations"
+          ],
+          "cta": {
+            "text": "See AI in Action",
+            "href": "#application"
+          }
+        },
+        {
+          "title": "Automated Routines That Replace Manual Work",
+          "description": "Set up intelligent workflows that monitor performance, adjust budgets, pause underperforming ads, and alert your team - all without human intervention.",
+          "benefits": [
+            "24/7 campaign monitoring",
+            "Automatic budget optimization",
+            "Smart alert systems"
+          ],
+          "cta": {
+            "text": "Build Your First Routine",
+            "href": "#application"
+          }
+        },
+        {
+          "title": "Task Delegation to Human Experts When Needed",
+          "description": "For complex creative work or strategic decisions, Pluto seamlessly hands off tasks to your team or trusted freelancers, managing the entire process.",
+          "benefits": [
+            "Expert creative assistance",
+            "Managed freelancer coordination",
+            "Quality control workflows"
+          ],
+          "cta": {
+            "text": "Explore Task Management",
+            "href": "#application"
+          }
+        },
+        {
+          "title": "Universal Integrations That Actually Work",
+          "description": "Connect Google Ads, Facebook, Shopify, HubSpot, Slack and 100+ other tools. Pluto becomes the central nervous system of your revenue operations.",
+          "benefits": [
+            "One-click platform connections",
+            "Unified data layer",
+            "Cross-platform automation"
+          ],
+          "cta": {
+            "text": "View All Integrations",
+            "href": "#application"
+          }
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "heading": "From Setup to Scale in 3 Simple Steps",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Connect Your Existing Tools",
+          "description": "Link your advertising accounts, CRM, analytics, and communication tools. Pluto maps your data and understands your current workflows in minutes."
+        },
+        {
+          "number": "2",
+          "title": "Define Your Growth Goals",
+          "description": "Tell Pluto your revenue targets, preferred channels, and optimization preferences. The AI learns your business rules and constraints."
+        },
+        {
+          "number": "3",
+          "title": "Let Pluto Automate Everything",
+          "description": "Watch as campaigns optimize themselves, reports generate automatically, and your team gets freed up to focus on strategy and creative work."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "Common Questions About Pluto",
+      "faqs": [
+        {
+          "question": "How is this different from just using multiple SaaS tools?",
+          "answer": "Pluto eliminates the chaos of tool sprawl by creating intelligent connections between your existing platforms. Instead of logging into 10 different dashboards, you get one AI interface that can take actions across all your tools. It's automation, not just aggregation."
+        },
+        {
+          "question": "Do I need to be technical to use AI automation?",
+          "answer": "Not at all. Pluto is designed for marketers and business operators, not developers. You set up automations through conversation, not code. The AI handles the technical complexity while you focus on business outcomes."
+        },
+        {
+          "question": "What if I'm already using a marketing platform like HubSpot?",
+          "answer": "Pluto enhances your existing stack rather than replacing it. We integrate deeply with HubSpot, Salesforce, and other platforms to add AI-powered automation on top of your current workflows. Think of us as the intelligent layer that makes everything work together."
+        },
+        {
+          "question": "How quickly can I see results?",
+          "answer": "Most customers see immediate time savings from basic automations within the first week. More sophisticated optimizations and performance improvements typically emerge within 2-4 weeks as the AI learns your business patterns."
+        },
+        {
+          "question": "Is my data secure with all these integrations?",
+          "answer": "Yes. We use enterprise-grade security and only access the minimum data needed for each automation. All connections use OAuth protocols and can be revoked at any time. We're SOC 2 compliant and never sell or share your data."
+        },
+        {
+          "question": "What happens if I need human expertise for creative or strategy?",
+          "answer": "Pluto's task delegation feature connects you with vetted experts for complex work that requires human creativity or strategic thinking. The AI manages the entire process from briefing to delivery, ensuring quality and deadlines."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "Ready to Put Your Revenue Growth on Autopilot?",
+      "subheading": "Join hundreds of revenue teams who've eliminated manual work and scaled their operations with AI-powered automation.",
+      "cta": {
+        "text": "Start Your Free Trial",
+        "href": "#application"
+      },
+      "guarantee": "30-day free trial. No credit card required. Cancel anytime."
+    }
+  ],
+  "integrations": {
+    "companyId": "k17chg1zdg3g9hhnjb49dckcp584yzax",
+    "composioCompanyId": "company_1776369918650_zyjg4hz",
+    "calEventTypeId": 5984024
+  }
+}
