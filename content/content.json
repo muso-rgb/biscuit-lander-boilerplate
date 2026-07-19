@@ -1,58 +1,135 @@
 {
-  "header": {
-    "badge": "New Platform",
-    "headline": "Stop Wasting Budget on B2C Platforms. Meet Biscuit.",
-    "subheadline": "The intent-driven B2B advertising platform designed specifically to bypass traditional keyword bidding and plug directly into your CRM. Discover a smarter way to acquire high-quality B2B leads.",
-    "ctaText": "Get Demo",
-    "ctaUrl": "/booking"
+  "site": {
+    "brand": "Biscuit",
+    "header": {
+      "logoText": "Biscuit",
+      "navLinks": [
+        { "label": "Features", "href": "#features" },
+        { "label": "Who it's for", "href": "#audience" },
+        { "label": "FAQ", "href": "#faq" }
+      ],
+      "cta": { "label": "Start Free", "href": "/booking", "variant": "default" }
+    },
+    "footer": {
+      "contactEmail": "hello@heybiscuit.com",
+      "fallbackEmail": "hello@heybiscuit.com",
+      "legalLinks": [
+        { "label": "Terms of Service", "href": "/terms" },
+        { "label": "Privacy Policy", "href": "/privacy" }
+      ],
+      "legalDisclaimer": "© 2026 Biscuit. All rights reserved.",
+      "copyright": "© 2026 Biscuit"
+    }
   },
-  "marquee": {
-    "logos": [
-      {
-        "url": "/logos/associated-press.svg",
-        "alt": "Associated Press",
-        "name": "AP"
-      },
-      {
-        "url": "/logos/business-insider.svg",
-        "alt": "Business Insider",
-        "name": "Business Insider"
-      }
-    ]
-  },
-  "problem": {
-    "headline": "The Problem with Meta & Google",
-    "description": "They are fundamentally B2C platforms. When B2B marketers use them, they waste enormous amounts of budget on broad keywords and demographic targeting, resulting in low-quality leads.",
-    "solutionHeadline": "The 'Biscuit' Solution",
-    "solutionDescription": "Biscuit bypasses traditional keyword bidding. It plugs directly into a B2B company's CRM to identify ideal customer profiles, tracks buying intent signals across the professional web, and serves ads exclusively to decision-makers actively in market for your solution."
-  },
-  "features": {
-    "headline": "Why Top B2B Companies Choose Biscuit",
-    "features": [
-      {
-        "title": "CRM Integration",
-        "description": "Seamlessly connects with your CRM to uncover the ideal customer profiles based on historical data. Stop guessing who your audience is."
-      },
-      {
-        "title": "Intent Tracking",
-        "description": "Monitors buying intent signals across the professional web, capturing data points from high-value prospects. We intercept them at the critical decision moment."
-      },
-      {
-        "title": "Eliminate Waste",
-        "description": "No more broad keywords. Biscuit ensures your budget is only spent on decision-makers actively seeking your product."
-      }
-    ]
-  },
-  "audience": {
-    "headline": "Who Is Biscuit For?",
-    "description": "Biscuit is architected for B2B marketers who are tired of the inefficiencies of consumer-centric ad platforms. If your sales cycle involves multiple decision-makers and high customer lifetime value, Biscuit is your growth engine."
-  },
-  "finalCta": {
-    "title": "Ready to Dominate B2B Advertising?",
-    "description": "Join the beta today and see how intent-driven targeting transforms your pipeline.",
-    "primaryCtaText": "Get Demo",
-    "primaryCtaUrl": "/booking",
-    "secondaryCtaText": "Read the Docs",
-    "secondaryCtaUrl": "https://docs.hirepluto.ai/"
-  }
+  "sections": [
+    {
+      "type": "hero",
+      "badge": "Live in under 5 minutes",
+      "heading": "Phone calls on autopilot that actually get things done",
+      "subheading": "Build AI voice agents that answer calls, qualify leads, book appointments, and run outbound campaigns—around the clock.",
+      "primaryCta": { "label": "Set up your agent", "href": "/booking", "size": "lg" },
+      "caption": "No engineers. No phone systems to configure. Just sign up and go.",
+      "stats": [
+        { "value": "24/7", "label": "Availability", "detail": "Never miss a call" },
+        { "value": "<1s", "label": "Pickup Time", "detail": "Instant answers" },
+        { "value": "35+", "label": "Integrations", "detail": "CRM & Calendar ready" }
+      ]
+    },
+    {
+      "type": "process",
+      "label": "HOW IT WORKS",
+      "heading": "Live in under 5 minutes",
+      "tagline": "No engineers, no phone systems to configure. Just sign up and go.",
+      "steps": [
+        { "title": "Describe your business", "description": "Tell your agent who you are, what you do, and how you want calls handled. Add any documents it should reference." },
+        { "title": "Get a phone number", "description": "Pick a local or toll-free number in seconds, or forward your existing line. Your agent is ready to take calls immediately." },
+        { "title": "Let it run", "description": "Your AI agent answers calls, qualifies leads, books appointments, and sends you transcripts—around the clock." }
+      ]
+    },
+    {
+      "type": "features",
+      "label": "EVERYTHING YOUR PHONE LINE NEEDS, BUILT IN",
+      "heading": "Replace your answering service and auto-dialer",
+      "subheading": "Biscuit gives you a single AI-powered platform tailored for local business.",
+      "capabilities": [
+        { "title": "Appointments inside your calendar", "description": "Seamless Calendly & Google Calendar booking." },
+        { "title": "Ask the right questions first", "description": "Lead qualification that ensures serious buyers." }
+      ],
+      "cards": [
+        {
+          "title": "Natural Conversations",
+          "description": "Your agent sounds human, handles interruptions, and adapts to the caller. Choose from top models like GPT-4o and Claude 3.5 Sonnet."
+        },
+        {
+          "title": "Outbound Campaigns",
+          "description": "Upload a CSV, set a schedule, and let your agent call through your list. Track every outcome in real time."
+        },
+        {
+          "title": "Instant Phone Numbers",
+          "description": "Get a local or toll-free number in seconds, or forward your existing business line. Voice and SMS from one number."
+        },
+        {
+          "title": "Transcripts & Insights",
+          "description": "Every call is transcribed and summarized automatically. See what callers ask, how long calls last, and what converts."
+        }
+      ]
+    },
+    {
+      "type": "audience",
+      "heading": "Built for businesses that live on the phone",
+      "cta": { "label": "Book a demo today", "href": "/booking", "variant": "outline" },
+      "items": [
+        {
+          "title": "Dental & medical offices",
+          "subtitle": "Fill cancellations automatically",
+          "description": "Don't let empty slots cost you. Biscuit confirms and backfills appointments effortlessly."
+        },
+        {
+          "title": "Real estate teams",
+          "subtitle": "Qualify and route inbound leads 24/7",
+          "description": "Never let a hot property inquiry go unanswered. We ask the key qualification questions instantly."
+        },
+        {
+          "title": "Home services",
+          "subtitle": "Book estimates on the job",
+          "description": "Focus on the physical work. Your agent captures the callers needing quotes right away."
+        },
+        {
+          "title": "Law firms & Salons",
+          "subtitle": "Intake after hours",
+          "description": "Provide a professional greeting for sensitive client needs or beauty bookings even when doors are closed."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "Frequently Asked Questions",
+      "subheading": "Everything you need to know about setting up your Biscuit voice agent.",
+      "items": [
+        {
+          "question": "Can I keep my existing phone number?",
+          "answer": "Yes! You can either pick a new local/toll-free number in seconds, or securely forward your existing business line to your Biscuit agent."
+        },
+        {
+          "question": "Does the AI sound robotic?",
+          "answer": "Not at all. Biscuit utilizes the latest top-tier voice AI models (like GPT-4o and Claude 3.5 Sonnet) so your agent sounds completely natural, handles interruptions gracefully, and converses like a human."
+        },
+        {
+          "question": "Can it integrate with my calendar and CRM?",
+          "answer": "Absolutely. Biscuit plugs into 35+ tools including GoHighLevel, Calendly, Google Calendar, and Slack to auto-fill appointments and push lead data directly to your dashboard."
+        },
+        {
+          "question": "How quickly can I be up and running?",
+          "answer": "You can be live in under 5 minutes. No coding or complex phone system configuration is necessary. Just explain your business, grab a number, and you're set."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "Stop missing calls. Start closing more.",
+      "subheading": "Set up your AI phone agent in minutes. No contracts, no hardware, no engineering team required.",
+      "cta": { "label": "Set up your agent", "href": "/booking", "size": "lg" },
+      "caption": "Biscuit pays for itself on day one."
+    }
+  ]
 }
