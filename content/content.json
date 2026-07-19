@@ -1,58 +1,322 @@
 {
-  "header": {
-    "badge": "New Platform",
-    "headline": "Stop Wasting Budget on B2C Platforms. Meet Biscuit.",
-    "subheadline": "The intent-driven B2B advertising platform designed specifically to bypass traditional keyword bidding and plug directly into your CRM. Discover a smarter way to acquire high-quality B2B leads.",
-    "ctaText": "Get Demo",
-    "ctaUrl": "/booking"
+  "integrations": {
+    "companyId": "k17chg1zdg3g9hhnjb49dckcp584yzax",
+    "calEventTypeId": 5984024
   },
-  "marquee": {
-    "logos": [
-      {
-        "url": "/logos/associated-press.svg",
-        "alt": "Associated Press",
-        "name": "AP"
-      },
-      {
-        "url": "/logos/business-insider.svg",
-        "alt": "Business Insider",
-        "name": "Business Insider"
+  "site": {
+    "brand": "Fabrika",
+    "header": {
+      "logoText": "Fabrika",
+      "navLinks": [
+        { "label": "Why Fabrika", "href": "#whyus" },
+        { "label": "How It Works", "href": "#how-it-works" },
+        { "label": "Who It’s For", "href": "#audience" },
+        { "label": "FAQ", "href": "#faq" }
+      ],
+      "cta": {
+        "label": "Book a Strategy Call",
+        "href": "#application",
+        "variant": "default",
+        "size": "default"
       }
-    ]
+    },
+    "footer": {
+      "contactEmail": "connect@heyfabrika.com",
+      "fallbackEmail": "connect@heyfabrika.com",
+      "legalLinks": [
+        { "label": "Home", "href": "https://www.heyfabrika.com/" },
+        { "label": "Privacy", "href": "https://www.heyfabrika.com/privacy-policy" },
+        { "label": "Terms", "href": "https://www.heyfabrika.com/terms-and-conditions" }
+      ],
+      "legalDisclaimer": "Fabrika designs and builds custom software and AI systems for growing businesses. Every engagement is scoped around your processes, team capacity, and growth goals—so you get software people actually use, not shelfware.",
+      "copyright": "© 2026 Fabrika"
+    }
   },
-  "problem": {
-    "headline": "The Problem with Meta & Google",
-    "description": "They are fundamentally B2C platforms. When B2B marketers use them, they waste enormous amounts of budget on broad keywords and demographic targeting, resulting in low-quality leads.",
-    "solutionHeadline": "The 'Biscuit' Solution",
-    "solutionDescription": "Biscuit bypasses traditional keyword bidding. It plugs directly into a B2B company's CRM to identify ideal customer profiles, tracks buying intent signals across the professional web, and serves ads exclusively to decision-makers actively in market for your solution."
-  },
-  "features": {
-    "headline": "Why Top B2B Companies Choose Biscuit",
-    "features": [
-      {
-        "title": "CRM Integration",
-        "description": "Seamlessly connects with your CRM to uncover the ideal customer profiles based on historical data. Stop guessing who your audience is."
+  "sections": [
+    {
+      "type": "marquee",
+      "items": [
+        "Custom software that actually works",
+        "AI systems built around your business",
+        "Fewer manual tasks and less tool sprawl",
+        "Designed for small and mid-sized teams",
+        "From idea to live workflow with one partner"
+      ]
+    },
+    {
+      "type": "hero",
+      "badge": "Custom software + AI for growing businesses",
+      "heading": "Stop forcing your team to work around off-the-shelf tools. *Build software that fits the way you actually operate.*",
+      "subheading": "Fabrika helps small and mid-sized businesses replace clunky SaaS stacks, repetitive admin, and disconnected workflows with custom software and practical AI systems built for how your company already works.",
+      "primaryCta": {
+        "label": "Book Your Free Strategy Call",
+        "href": "#application",
+        "variant": "default",
+        "size": "lg"
       },
-      {
-        "title": "Intent Tracking",
-        "description": "Monitors buying intent signals across the professional web, capturing data points from high-value prospects. We intercept them at the critical decision moment."
-      },
-      {
-        "title": "Eliminate Waste",
-        "description": "No more broad keywords. Biscuit ensures your budget is only spent on decision-makers actively seeking your product."
+      "caption": "Walk away with clear next steps, realistic scope, and where AI or custom software can create the biggest leverage first.",
+      "stats": [
+        {
+          "value": "SMB-first",
+          "label": "Built for your stage",
+          "detail": "Solutions shaped for small and mid-sized companies that need leverage, not enterprise bloat."
+        },
+        {
+          "value": "Custom-fit",
+          "label": "No forced workflows",
+          "detail": "We design around your team, your process, and your real operational bottlenecks."
+        },
+        {
+          "value": "AI + software",
+          "label": "One delivery partner",
+          "detail": "Strategy, product thinking, UX, engineering, and implementation in one place."
+        },
+        {
+          "value": "Practical wins",
+          "label": "Focus on usable outcomes",
+          "detail": "The goal is better throughput, fewer manual steps, and software your team actually adopts."
+        }
+      ]
+    },
+    {
+      "type": "opportunity",
+      "label": "WHY FABRIKA",
+      "heading": "Most companies do not need *more tools*. They need a better operating system for the business.",
+      "cards": [
+        {
+          "title": "Without a tailored system",
+          "stat": "Teams work around the software",
+          "statKicker": "Instead of software working for the team",
+          "description": "When you rely on generic SaaS for specialized workflows, people end up using spreadsheets, Slack messages, side processes, and memory to fill the gaps.",
+          "bullets": [
+            "Data lives in too many places",
+            "Processes break when key people are busy or leave",
+            "Reporting is manual and decisions get delayed"
+          ]
+        },
+        {
+          "title": "With practical AI",
+          "stat": "Automation becomes useful",
+          "statKicker": "Because it is wired into the real workflow",
+          "description": "AI is only valuable when it plugs into a process your team already uses. Fabrika identifies where automation can remove friction without creating another thing to manage.",
+          "bullets": [
+            "Reduce repetitive admin work",
+            "Speed up internal handoffs",
+            "Give your team leverage without extra complexity"
+          ]
+        },
+        {
+          "title": "With Fabrika",
+          "stat": "You get software built around the business",
+          "statKicker": "Not the other way around",
+          "description": "We combine product strategy, UX, development, and AI implementation so you can replace disconnected tools with a system that feels obvious to use.",
+          "bullets": [
+            "Custom workflows matched to your operation",
+            "Clearer visibility into work, data, and decisions",
+            "A long-term software partner instead of one-off code"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "label": "HOW IT WORKS",
+      "heading": "From messy process to a working system your team can actually use.",
+      "steps": [
+        {
+          "title": "Audit the bottlenecks",
+          "description": "We start by understanding where your current tools, manual work, and internal processes are slowing growth, creating errors, or wasting time."
+        },
+        {
+          "title": "Design the right solution",
+          "description": "Then we map the simplest useful system—whether that means custom software, AI-assisted workflows, integrations, or a combination of all three."
+        },
+        {
+          "title": "Build around your team",
+          "description": "Fabrika develops the product around the people who will actually use it, so adoption is built into the solution instead of treated as an afterthought."
+        },
+        {
+          "title": "Improve as you grow",
+          "description": "Once the core system is live, we keep iterating so your software continues to support new processes, automation opportunities, and scale."
+        }
+      ],
+      "tagline": "Good custom software should make the business feel simpler, clearer, and easier to run—not more technical."
+    },
+    {
+      "type": "offer",
+      "heading": "What Fabrika helps you *actually change* inside the business",
+      "subheading": "We do not sell code for its own sake. We build the internal systems, automations, and experiences that remove drag from growth.",
+      "items": [
+        {
+          "icon": "Blocks",
+          "title": "Custom internal tools",
+          "description": "Replace fragile spreadsheets and patchwork workflows with software designed around your team’s day-to-day operations."
+        },
+        {
+          "icon": "Bot",
+          "title": "Practical AI implementation",
+          "description": "Use AI where it genuinely saves time, improves decision-making, or increases throughput—without forcing hype-driven features into the stack."
+        },
+        {
+          "icon": "Workflow",
+          "title": "Workflow automation",
+          "description": "Reduce repetitive handoffs, approvals, data entry, and task duplication across the systems you already rely on."
+        },
+        {
+          "icon": "ChartNoAxesCombined",
+          "title": "Growth-ready product thinking",
+          "description": "Build software that supports the next stage of your business, not just a quick technical patch for today’s pain."
+        }
+      ],
+      "comparison": {
+        "left": {
+          "title": "Generic SaaS stack",
+          "kicker": "Works for everyone, fits no one perfectly",
+          "items": [
+            "Your team changes its process to match the tool",
+            "Important edge cases get pushed into manual workarounds",
+            "AI features feel bolted on instead of operationally useful",
+            "You keep paying for tools but still lack one clear system"
+          ]
+        },
+        "right": {
+          "title": "Fabrika-built system",
+          "kicker": "Tailored to the way your company actually runs",
+          "items": [
+            "Workflows reflect your real approvals, handoffs, and data flow",
+            "Automation is mapped to the bottlenecks costing time or money",
+            "AI is introduced where it creates measurable operational leverage",
+            "Your software becomes an asset that compounds with the business"
+          ]
+        }
       }
-    ]
-  },
-  "audience": {
-    "headline": "Who Is Biscuit For?",
-    "description": "Biscuit is architected for B2B marketers who are tired of the inefficiencies of consumer-centric ad platforms. If your sales cycle involves multiple decision-makers and high customer lifetime value, Biscuit is your growth engine."
-  },
-  "finalCta": {
-    "title": "Ready to Dominate B2B Advertising?",
-    "description": "Join the beta today and see how intent-driven targeting transforms your pipeline.",
-    "primaryCtaText": "Get Demo",
-    "primaryCtaUrl": "/booking",
-    "secondaryCtaText": "Read the Docs",
-    "secondaryCtaUrl": "https://docs.hirepluto.ai/"
-  }
+    },
+    {
+      "type": "features",
+      "label": "EVERYTHING YOU NEED",
+      "heading": "A software partner that helps you move *faster, cleaner, and with less operational drag*.",
+      "subheading": "Fabrika combines strategy and implementation so you are not juggling separate consultants, designers, and developers just to modernize one workflow.",
+      "cards": [
+        {
+          "category": "CLARITY",
+          "title": "Know what to build first—and why it matters",
+          "description": "We help you identify the systems worth replacing, the manual work worth automating, and the changes most likely to create leverage for the business.",
+          "items": [
+            { "label": "Current bottlenecks mapped", "status": "Prioritized" },
+            { "label": "Highest-leverage use cases identified", "status": "Scoped" },
+            { "label": "Solution path aligned to business reality", "status": "Planned" }
+          ]
+        },
+        {
+          "category": "EXECUTION",
+          "title": "Build systems people actually adopt",
+          "description": "The software only works if your team uses it. That is why Fabrika focuses on usability, workflow fit, and implementation grounded in how your team already operates.",
+          "stats": [
+            { "label": "Design + development", "value": "In one team" },
+            { "label": "AI + automation", "value": "Built into the workflow" },
+            { "label": "Tool sprawl", "value": "Reduced" }
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Custom business software",
+          "description": "Operational tools, portals, dashboards, and internal systems designed around your process."
+        },
+        {
+          "title": "AI workflow integration",
+          "description": "Use assistants, classification, summarization, routing, and decision support where they create real savings."
+        },
+        {
+          "title": "Systems integration",
+          "description": "Connect the tools you still need so data moves cleanly instead of being copied by hand."
+        },
+        {
+          "title": "Product and UX thinking",
+          "description": "Make complex workflows feel simple so adoption is easier across teams."
+        },
+        {
+          "title": "Long-term iteration",
+          "description": "Keep improving the system as the business grows and new bottlenecks appear."
+        },
+        {
+          "title": "Business-first implementation",
+          "description": "Every build choice is tied back to speed, clarity, efficiency, or growth—not novelty."
+        }
+      ]
+    },
+    {
+      "type": "audience",
+      "heading": "Fabrika is a strong fit for companies that are *outgrowing generic tools* but are not ready to waste time on enterprise complexity.",
+      "items": [
+        {
+          "title": "BEST FIT",
+          "subtitle": "Small and mid-sized businesses with real workflow pain",
+          "description": "You have recurring operational friction, disconnected tools, or manual processes holding back growth—and you want a partner who can translate that mess into usable software.",
+          "tone": "default"
+        },
+        {
+          "title": "NOT IDEAL",
+          "subtitle": "Teams looking for another off-the-shelf subscription",
+          "description": "If your process is already well served by standard SaaS or you only want the cheapest short-term workaround, custom software may not be the right move yet.",
+          "tone": "warning"
+        }
+      ],
+      "cta": {
+        "label": "See If Fabrika Fits Your Workflow",
+        "href": "#application",
+        "variant": "default",
+        "size": "lg"
+      }
+    },
+    {
+      "type": "faq",
+      "heading": "Questions teams usually ask before building custom software",
+      "subheading": "These are the concerns we hear most often from companies considering custom software or AI for the first time.",
+      "items": [
+        {
+          "question": "How do I know if we really need custom software?",
+          "answer": "If your team is constantly stitching together spreadsheets, multiple SaaS tools, manual approvals, and one-off workarounds, custom software may be the cleaner long-term solution. The goal is not to replace tools for fun—it is to remove recurring friction that keeps costing the business time and momentum."
+        },
+        {
+          "question": "What if we are unsure where AI actually fits?",
+          "answer": "That is normal. Fabrika does not force AI into places it does not belong. We look for the workflows where AI can realistically reduce admin, speed up decisions, or support the team—then build from there."
+        },
+        {
+          "question": "We already use a lot of software. Can Fabrika still help?",
+          "answer": "Yes. Often the issue is not a total lack of tooling—it is that the tools do not connect well or were never designed for your exact workflow. Fabrika can help consolidate, integrate, or build around the gaps."
+        },
+        {
+          "question": "Will our team need a lot of training?",
+          "answer": "The aim is the opposite. Fabrika builds around how your team already works so the finished system feels intuitive. Good software should reduce training overhead, not increase it."
+        },
+        {
+          "question": "Is custom software only for large companies?",
+          "answer": "No. In many cases, smaller and mid-sized businesses benefit the most because the right system can unlock capacity quickly. Fabrika specifically positions itself for growing companies that need leverage without enterprise bloat."
+        },
+        {
+          "question": "What happens after the first version is launched?",
+          "answer": "Launch is the start, not the finish line. Once the core system is working, Fabrika can keep iterating with you so the software evolves alongside the business instead of becoming outdated six months later."
+        }
+      ]
+    },
+    {
+      "type": "finalCta",
+      "heading": "If your team is held together by workarounds, it’s probably time to build the system you actually need.",
+      "subheading": "Book a strategy call with Fabrika and we’ll help you identify where custom software or AI can remove the most friction first.",
+      "cta": {
+        "label": "Book a Free Strategy Call",
+        "href": "#application",
+        "variant": "default",
+        "size": "lg"
+      },
+      "caption": "No vague discovery fluff—just a practical conversation about your workflows, bottlenecks, and what is worth building next."
+    },
+    {
+      "type": "application",
+      "heading": "Start with a quick qualification form",
+      "subheading": "Tell us a bit about your business, your workflow bottlenecks, and what you want to improve. If it’s a fit, you’ll be able to book time with Fabrika right away.",
+      "companyId": "k17chg1zdg3g9hhnjb49dckcp584yzax"
+    }
+  ]
 }
