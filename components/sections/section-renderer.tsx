@@ -8,6 +8,7 @@
  */
 
 import type { PageIntegrationsContent, SectionContent } from "@/content/schema"
+import { Suspense } from "react"
 import { MarqueeSection } from "./marquee-section"
 import { HeroSection } from "./hero-section"
 import { LogoStripSection } from "./logo-strip-section"
@@ -62,11 +63,23 @@ export function SectionRenderer({ section, integrations, fallbackEmail }: Sectio
       return <FinalCtaSection content={section} />
     case "application":
       return (
-        <ApplicationSection
-          content={section}
-          integrationsCompanyId={integrations?.companyId}
-          fallbackEmail={fallbackEmail}
-        />
+        <Suspense
+          fallback={
+            <section id="application" className="section-pad pt-10">
+              <div className="content-shell max-w-6xl">
+                <div className="glass-card rounded-3xl px-6 py-10 text-center text-sm text-[color:var(--text-muted)] md:px-10">
+                  Loading application…
+                </div>
+              </div>
+            </section>
+          }
+        >
+          <ApplicationSection
+            content={section}
+            integrationsCompanyId={integrations?.companyId}
+            fallbackEmail={fallbackEmail}
+          />
+        </Suspense>
       )
     default: {
       // Exhaustiveness check: this line errors if a new union member has no case
