@@ -14,10 +14,10 @@
     {
       "id": "hero",
       "type": "hero",
-      "header": "Phone calls on autopilot that actually get things done.",
-      "subheader": "Biscuit replaces your answering service and call center software. Build AI phone agents that answer calls, qualify leads, and book appointments—around the clock.",
+      "header": "Stop letting missed calls cost you sales.",
+      "subheader": "Biscuit replaces clunky answering services and call centers. Build an AI agent that sounds human, answers immediately, qualifies leads, and books appointments 24/7.",
       "primaryCTA": {
-        "text": "Start Building Your Agent",
+        "text": "Get Started Free",
         "link": "#application"
       },
       "secondaryCTA": {
@@ -26,13 +26,13 @@
       },
       "image": {
         "url": "/images/hero-dashboard.jpg",
-        "alt": "A live view of the Biscuit dashboard showing active calls and appointments booked"
+        "alt": "Biscuit dashboard showing active calls and answered rates"
       }
     },
     {
       "id": "social-proof",
       "type": "logoBar",
-      "text": "Trusted by businesses that can't afford to miss a call",
+      "text": "Trusted by fast-growing businesses that live on the phone",
       "logos": [
         { "url": "/logos/dental.svg", "alt": "Dental Clinics" },
         { "url": "/logos/realestate.svg", "alt": "Real Estate Agencies" },
@@ -45,19 +45,19 @@
       "header": "Everything your phone line needs, built right in.",
       "features": [
         {
-          "title": "Conversations that sound human.",
-          "description": "Your agent sounds natural, handles interruptions perfectly, and adapts to the caller's answers. No awkward robotic menus.",
-          "image": { "url": "/images/wave-audio.svg", "alt": "Audio waveform" }
+          "title": "Conversations that actually sound human.",
+          "description": "Your agent sounds natural, handles interruptions perfectly, and adapts to the caller's answers. Say goodbye to awkward, robotic \"press 1 for sales\" menus.",
+          "image": { "url": "/images/wave-audio.svg", "alt": "Audio waveform representing natural voice" }
         },
         {
-          "title": "A new number in seconds.",
-          "description": "Pick a local or toll-free number immediately, or simply forward your existing business line to your Biscuit agent to start taking calls out of the box.",
-          "image": { "url": "/images/phone-number.svg", "alt": "Phone interface" }
+          "title": "Set up a new number in seconds.",
+          "description": "Pick a local or toll-free number immediately, or simply forward your existing business line to your Biscuit agent. You'll be taking calls out of the box.",
+          "image": { "url": "/images/phone-number.svg", "alt": "Phone interface showing number assignment" }
         },
         {
-          "title": "Runs your outbound campaigns.",
-          "description": "Upload a CSV, set a schedule, and let your agent automatically dial through your list. Every outcome is tracked in real-time.",
-          "image": { "url": "/images/outbound-list.svg", "alt": "Dialer interface" }
+          "title": "Run outbound campaigns while you sleep.",
+          "description": "Upload a CSV, set a schedule, and let your agent automatically dial through your lead list. Every call outcome is logged, transcribed, and tracked in real-time.",
+          "image": { "url": "/images/outbound-list.svg", "alt": "Dialer interface tracking campaign success" }
         }
       ]
     },
@@ -67,16 +67,16 @@
       "header": "Live and taking calls in under 5 minutes.",
       "steps": [
         {
-          "title": "Tell the agent your business.",
-          "description": "Explain who you are, what you do, and give it any FAQs or pricing documents to reference so it answers accurately."
+          "title": "Tell the AI about your business.",
+          "description": "Explain who you are, what you do, and provide FAQs or pricing so it answers accurately without halluncinations."
         },
         {
           "title": "Get a phone number.",
-          "description": "Choose a local line or forward your current one. Your AI is instantly ready to go."
+          "description": "Choose a new local line or forward your current one. Your AI agent is instantly ready to start dialing and receiving."
         },
         {
           "title": "Let it run.",
-          "description": "Your agent qualifies leads, texts follow-up links, and syncs appointments straight to your calendar while you sleep."
+          "description": "Your agent answers questions, texts follow-up links, and syncs booked appointments straight to your chosen calendar."
         }
       ]
     },
@@ -96,16 +96,16 @@
       "header": "Frequently Asked Questions",
       "questions": [
         {
-          "question": "Can it text customers after a call?",
-          "answer": "Yes. Biscuit can send SMS confirmations, scheduling links, or follow-up texts straight from the same number immediately after a call ends."
+          "question": "Can Biscuit text customers after a call?",
+          "answer": "Yes. Biscuit can seamlessly send SMS confirmations, scheduling links, or follow-up texts straight from the same phone number immediately after a call ends."
         },
         {
-          "question": "How smart is the AI?",
+          "question": "How smart is the AI really?",
           "answer": "You can choose from the top models available, including GPT-4o and Claude 3.5 Sonnet, guaranteeing high-quality reasoning capable of holding natural qualification conversations."
         },
         {
           "question": "What happens if a caller asks a question the AI doesn't know?",
-          "answer": "You can configure your agent to politely take a message, escalate to a live human (multi-agent routing), or promise an SMS follow-up with the answer."
+          "answer": "You can configure your agent's fallback behavior to politely take a message, escalate to a live human instantly via multi-agent routing, or promise an SMS follow-up."
         }
       ]
     },
