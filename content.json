@@ -1,0 +1,123 @@
+{
+  "site": {
+    "title": "HeyBiscuit | AI Voice Agents That Actually Get Things Done",
+    "description": "Build an AI voice agent that answers calls, qualifies leads, and books appointments around the clock so you never miss another sale.",
+    "theme": {
+      "colors": {
+        "primary": "#E2DCCF",
+        "secondary": "#ffffff",
+        "accent": "#EF4444"
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "header": "Phone calls on autopilot that actually get things done.",
+      "subheader": "Biscuit replaces your answering service and call center software. Build AI phone agents that answer calls, qualify leads, and book appointments—around the clock.",
+      "primaryCTA": {
+        "text": "Start Building Your Agent",
+        "link": "#application"
+      },
+      "secondaryCTA": {
+        "text": "Listen to a Live Call",
+        "link": "#demo"
+      },
+      "image": {
+        "url": "/images/hero-dashboard.jpg",
+        "alt": "A live view of the Biscuit dashboard showing active calls and appointments booked"
+      }
+    },
+    {
+      "id": "social-proof",
+      "type": "logoBar",
+      "text": "Trusted by businesses that can't afford to miss a call",
+      "logos": [
+        { "url": "/logos/dental.svg", "alt": "Dental Clinics" },
+        { "url": "/logos/realestate.svg", "alt": "Real Estate Agencies" },
+        { "url": "/logos/home-services.svg", "alt": "Home Services" }
+      ]
+    },
+    {
+      "id": "benefits",
+      "type": "features",
+      "header": "Everything your phone line needs, built right in.",
+      "features": [
+        {
+          "title": "Conversations that sound human.",
+          "description": "Your agent sounds natural, handles interruptions perfectly, and adapts to the caller's answers. No awkward robotic menus.",
+          "image": { "url": "/images/wave-audio.svg", "alt": "Audio waveform" }
+        },
+        {
+          "title": "A new number in seconds.",
+          "description": "Pick a local or toll-free number immediately, or simply forward your existing business line to your Biscuit agent to start taking calls out of the box.",
+          "image": { "url": "/images/phone-number.svg", "alt": "Phone interface" }
+        },
+        {
+          "title": "Runs your outbound campaigns.",
+          "description": "Upload a CSV, set a schedule, and let your agent automatically dial through your list. Every outcome is tracked in real-time.",
+          "image": { "url": "/images/outbound-list.svg", "alt": "Dialer interface" }
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "type": "steps",
+      "header": "Live and taking calls in under 5 minutes.",
+      "steps": [
+        {
+          "title": "Tell the agent your business.",
+          "description": "Explain who you are, what you do, and give it any FAQs or pricing documents to reference so it answers accurately."
+        },
+        {
+          "title": "Get a phone number.",
+          "description": "Choose a local line or forward your current one. Your AI is instantly ready to go."
+        },
+        {
+          "title": "Let it run.",
+          "description": "Your agent qualifies leads, texts follow-up links, and syncs appointments straight to your calendar while you sleep."
+        }
+      ]
+    },
+    {
+      "id": "integrations-bar",
+      "type": "logoBar",
+      "text": "Plugs directly into the tools you already rely on.",
+      "logos": [
+        { "url": "/logos/gohighlevel.svg", "alt": "GoHighLevel" },
+        { "url": "/logos/google-calendar.svg", "alt": "Google Calendar" },
+        { "url": "/logos/calendly.svg", "alt": "Calendly" }
+      ]
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "header": "Frequently Asked Questions",
+      "questions": [
+        {
+          "question": "Can it text customers after a call?",
+          "answer": "Yes. Biscuit can send SMS confirmations, scheduling links, or follow-up texts straight from the same number immediately after a call ends."
+        },
+        {
+          "question": "How smart is the AI?",
+          "answer": "You can choose from the top models available, including GPT-4o and Claude 3.5 Sonnet, guaranteeing high-quality reasoning capable of holding natural qualification conversations."
+        },
+        {
+          "question": "What happens if a caller asks a question the AI doesn't know?",
+          "answer": "You can configure your agent to politely take a message, escalate to a live human (multi-agent routing), or promise an SMS follow-up with the answer."
+        }
+      ]
+    },
+    {
+      "id": "final-cta",
+      "type": "cta",
+      "header": "Stop missing calls. Start closing more leads.",
+      "description": "Set up your AI phone agent in minutes. No contracts. No hardware. No engineering team required.",
+      "primaryCTA": {
+        "text": "Create Your Agent Now",
+        "link": "#application"
+      }
+    }
+  ]
+}
