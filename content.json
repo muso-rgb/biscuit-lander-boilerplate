@@ -1,74 +1,90 @@
 {
   "site": {
-    "title": "HeyBiscuit | AI Voice Agents That Actually Get Things Done",
-    "description": "Build an AI voice agent that answers calls, qualifies leads, and books appointments around the clock so you never miss another sale.",
-    "theme": {
-      "colors": {
-        "primary": "#E2DCCF",
-        "secondary": "#ffffff",
-        "accent": "#EF4444"
+    "brand": "HeyBiscuit",
+    "header": {
+      "logoText": "HeyBiscuit",
+      "navLinks": [
+        {
+          "label": "Features",
+          "href": "#features"
+        },
+        {
+          "label": "Process",
+          "href": "#process"
+        }
+      ],
+      "cta": {
+        "label": "Get Started",
+        "href": "#application"
       }
+    },
+    "footer": {
+      "contactEmail": "hello@heybiscuit.com",
+      "legalLinks": [],
+      "legalDisclaimer": "Copyright 2026 HeyBiscuit",
+      "copyright": "Copyright 2026 HeyBiscuit"
     }
   },
   "sections": [
     {
-      "id": "hero",
       "type": "hero",
-      "header": "Stop letting missed calls cost you sales.",
-      "subheader": "Biscuit replaces clunky answering services and call centers. Build an AI agent that sounds human, answers immediately, qualifies leads, and books appointments 24/7.",
-      "primaryCTA": {
-        "text": "Get Started Free",
-        "link": "#application"
+      "badge": "Available Now",
+      "heading": "Stop letting missed calls cost you sales.",
+      "subheading": "Biscuit replaces clunky answering services and call centers. Build an AI agent that sounds human, answers immediately, qualifies leads, and books appointments 24/7.",
+      "primaryCta": {
+        "label": "Get Started Free",
+        "href": "#application"
       },
-      "secondaryCTA": {
-        "text": "Listen to a Live Call",
-        "link": "#demo"
-      },
-      "image": {
-        "url": "/images/hero-dashboard.jpg",
-        "alt": "Biscuit dashboard showing active calls and answered rates"
-      }
+      "caption": "Live in under 5 minutes. No coding required.",
+      "stats": []
     },
     {
-      "id": "social-proof",
-      "type": "logoBar",
-      "text": "Trusted by fast-growing businesses that live on the phone",
-      "logos": [
-        { "url": "/logos/dental.svg", "alt": "Dental Clinics" },
-        { "url": "/logos/realestate.svg", "alt": "Real Estate Agencies" },
-        { "url": "/logos/home-services.svg", "alt": "Home Services" }
-      ]
-    },
-    {
-      "id": "benefits",
-      "type": "features",
-      "header": "Everything your phone line needs, built right in.",
-      "features": [
+      "type": "logoStrip",
+      "label": "Trusted by fast-growing businesses that live on the phone",
+      "items": [
         {
-          "title": "Conversations that actually sound human.",
-          "description": "Your agent sounds natural, handles interruptions perfectly, and adapts to the caller's answers. Say goodbye to awkward, robotic \"press 1 for sales\" menus.",
-          "image": { "url": "/images/wave-audio.svg", "alt": "Audio waveform representing natural voice" }
+          "src": "/logos/dental.svg",
+          "alt": "Dental Clinics"
         },
         {
-          "title": "Set up a new number in seconds.",
-          "description": "Pick a local or toll-free number immediately, or simply forward your existing business line to your Biscuit agent. You'll be taking calls out of the box.",
-          "image": { "url": "/images/phone-number.svg", "alt": "Phone interface showing number assignment" }
+          "src": "/logos/realestate.svg",
+          "alt": "Real Estate Agencies"
         },
         {
-          "title": "Run outbound campaigns while you sleep.",
-          "description": "Upload a CSV, set a schedule, and let your agent automatically dial through your lead list. Every call outcome is logged, transcribed, and tracked in real-time.",
-          "image": { "url": "/images/outbound-list.svg", "alt": "Dialer interface tracking campaign success" }
+          "src": "/logos/home-services.svg",
+          "alt": "Home Services"
         }
       ]
     },
     {
-      "id": "how-it-works",
-      "type": "steps",
-      "header": "Live and taking calls in under 5 minutes.",
+      "type": "features",
+      "heading": "Everything your phone line needs, built right in.",
+      "subheading": "",
+      "cards": [
+        {
+          "title": "Conversations that actually sound human.",
+          "description": "Your agent sounds natural, handles interruptions perfectly, and adapts to the caller's answers. Say goodbye to awkward, robotic 'press 1 for sales' menus."
+        },
+        {
+          "title": "Set up a new number in seconds.",
+          "description": "Pick a local or toll-free number immediately, or simply forward your existing business line to your Biscuit agent. You'll be taking calls out of the box."
+        },
+        {
+          "title": "Run outbound campaigns while you sleep.",
+          "description": "Upload a CSV, set a schedule, and let your agent automatically dial through your lead list. Every call outcome is logged, transcribed, and tracked in real-time."
+        }
+      ],
+      "capabilities": []
+    },
+    {
+      "type": "process",
+      "heading": "Live and taking calls in under 5 minutes.",
+      "label": "Setup",
+      "tagline": "",
       "steps": [
         {
           "title": "Tell the AI about your business.",
-          "description": "Explain who you are, what you do, and provide FAQs or pricing so it answers accurately without halluncinations."
+          "description": "Explain who you are, what you do, and provide FAQs or pricing so it answers accurately."
         },
         {
           "title": "Get a phone number.",
@@ -81,20 +97,9 @@
       ]
     },
     {
-      "id": "integrations-bar",
-      "type": "logoBar",
-      "text": "Plugs directly into the tools you already rely on.",
-      "logos": [
-        { "url": "/logos/gohighlevel.svg", "alt": "GoHighLevel" },
-        { "url": "/logos/google-calendar.svg", "alt": "Google Calendar" },
-        { "url": "/logos/calendly.svg", "alt": "Calendly" }
-      ]
-    },
-    {
-      "id": "faq",
       "type": "faq",
-      "header": "Frequently Asked Questions",
-      "questions": [
+      "heading": "Frequently Asked Questions",
+      "items": [
         {
           "question": "Can Biscuit text customers after a call?",
           "answer": "Yes. Biscuit can seamlessly send SMS confirmations, scheduling links, or follow-up texts straight from the same phone number immediately after a call ends."
@@ -110,13 +115,13 @@
       ]
     },
     {
-      "id": "final-cta",
-      "type": "cta",
-      "header": "Stop missing calls. Start closing more leads.",
-      "description": "Set up your AI phone agent in minutes. No contracts. No hardware. No engineering team required.",
-      "primaryCTA": {
-        "text": "Create Your Agent Now",
-        "link": "#application"
+      "type": "finalCta",
+      "heading": "Stop missing calls. Start closing more leads.",
+      "subheading": "Set up your AI phone agent in minutes. No contracts. No hardware. No engineering team required.",
+      "caption": "",
+      "cta": {
+        "label": "Create Your Agent Now",
+        "href": "#application"
       }
     }
   ]
